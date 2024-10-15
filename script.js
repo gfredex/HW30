@@ -4,7 +4,44 @@ class MyDropDown extends HTMLElement {
         this.attachShadow({ mode: 'open' });
 
         this.shadowRoot.innerHTML = `
-        
+        <style>
+        .header {
+            display: flex;
+            width: fit-content;
+            padding: 10px 10px 10px 20px;
+            border: 1px solid #494949;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .title {
+            margin-right: 20px;
+        }
+
+        .header .icon {
+            color: #494949;
+        }
+
+        .open .icon {
+            rotate: 180deg;
+        }
+
+        .list {
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+    </style>
+    <div class="dorp-block">
+        <div class="header">
+            <div class="title">Текст</div>
+            <div class="icon">&#9660;</div>
+        </div>
+        <div class="list">
+            <slot></slot>
+        </div>
+    </div>
         `;
     }
 
