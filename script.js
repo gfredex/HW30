@@ -163,10 +163,13 @@ class CustomTooltip extends HTMLElement {
         toolTip.textContent = text;
         toolTip.style.color = color || '#fff';
         toolTip.style.background = bgColor || '#333333';
-        const parent = toolTip.parentNode;
+        const parent = document.querySelector('.for-tooltip');
 
-        parent.addEventListener('click', e => {
-            console.log(e);
+        parent.addEventListener('mouseover', e => {
+            toolTip.classList.add('show');
+        });
+        parent.addEventListener('mouseout', e => {
+            toolTip.classList.remove('show');
         })
     }
 }
